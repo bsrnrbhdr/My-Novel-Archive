@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-    <!-- Define persistence unit -->
-    <persistence-unit name="my-persistence-unit">
-    </persistence-unit>
-</persistence>
