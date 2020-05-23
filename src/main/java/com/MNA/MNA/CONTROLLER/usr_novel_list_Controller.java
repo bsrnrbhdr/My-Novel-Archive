@@ -29,7 +29,7 @@ public class usr_novel_list_Controller {
     }
 
     @PostMapping(value = "/add")
-    public usr_novel_list addDeveloper(@RequestBody ListDTO request) {
+    public usr_novel_list addToList(@RequestBody ListDTO request) {
         return usr_novel_list_Service.SaveToList(request);
     }
 
