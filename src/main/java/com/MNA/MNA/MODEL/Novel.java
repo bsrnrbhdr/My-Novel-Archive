@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name="novel_tbl")
 public class Novel {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "novel_id", unique = true)
     private Long Id;

@@ -18,7 +18,7 @@ import javax.persistence.*;
 @ToString
 public class usr_novel_list {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "novel_list_id", unique = true)
     private Long Id;

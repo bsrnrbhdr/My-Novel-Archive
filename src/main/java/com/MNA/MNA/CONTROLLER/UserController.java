@@ -1,7 +1,5 @@
 package com.MNA.MNA.CONTROLLER;
-import com.MNA.MNA.DTO.NovelDTO;
 import com.MNA.MNA.DTO.UserDTO;
-import com.MNA.MNA.MODEL.Novel;
 import com.MNA.MNA.MODEL.User;
 import com.MNA.MNA.SERVICE.UserService;
 import lombok.RequiredArgsConstructor;
@@ -74,5 +72,31 @@ public class UserController {
         }
         return new ResponseEntity<>(novel_l, HttpStatus.OK);
     }
+    @GetMapping("/dropped_list/{user_id}")
+    public ResponseEntity<List<String>> findAllDropped(@PathVariable Long user_id) {
+        List<String> novel_l = userService.findAllDropped(user_id);
+        if (novel_l == null) {
+            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(novel_l, HttpStatus.OK);
+    }
+    @GetMapping("/read_list/{user_id}")
+    public ResponseEntity<List<String>> findAllRead(@PathVariable Long user_id) {
+        List<String> novel_l = userService.findAllRead(user_id);
+        if (novel_l == null) {
+            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(novel_l, HttpStatus.OK);
+    }
+    @GetMapping("/reading_list/{user_id}")
+    public ResponseEntity<List<String>> findAllCurrentlyReading(@PathVariable Long user_id) {
+        List<String> novel_l = userService.findAllCurrentlyReading(user_id);
+        if (novel_l == null) {
+            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(novel_l, HttpStatus.OK);
+    }
+
+
 
 }

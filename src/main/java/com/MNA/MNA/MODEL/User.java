@@ -18,8 +18,7 @@ import java.util.List;
 @Entity
 @Table(name="user_tbl")
 public class User {
-
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", unique = true)
     @JsonIgnore

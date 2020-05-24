@@ -1,7 +1,7 @@
 package com.MNA.MNA.CONTROLLER;
 
 import com.MNA.MNA.DTO.ListDTO;
-import com.MNA.MNA.DTO.NovelDTO;
+
 import com.MNA.MNA.MODEL.usr_novel_list;
 import com.MNA.MNA.SERVICE.usr_novel_list_service;
 import lombok.RequiredArgsConstructor;

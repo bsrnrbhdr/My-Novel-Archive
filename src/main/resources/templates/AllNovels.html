@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Novels</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="/NovelDataTable.js"></script>
+
+</head>
+
+<body>
+
+<h1>Novels</h1>
+
+
+<table id="NovelTable" class="display">
+
+    <!-- Header Table -->
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author Name</th>
+        <th>Year</th>
+        <th>--</th>
+        <th>--</th>
+    </tr>
+    </thead>
+    <!-- Footer Table -->
+    <tfoot>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author Name</th>
+        <th>Year</th>
+        <th>--</th>
+        <th>--</th>
+    </tr>
+    </tfoot>
+</table>
+<!-- Modal Edit-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form id="NovelFormData">
+                    <input type="hidden" id = "novel_id" name="novel_id">
+                    <div class="form-group">
+                        <label for="novel_name">User Name:</label> <input type="text"
+                                                                          class="form-control" id="novel_name" placeholder="Enter Novel Name"
+                                                                          name="novel_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author Name:</label> <input type="text"
+                                                                        class="form-control" id="author" placeholder="Enter Author"
+                                                                        name="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year :</label> <input type="text"
+                                                                class="form-control" id="year" placeholder="Enter year"
+                                                                name="year">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-6">
+                            <button type="submit" id="btn"
+                                    class="btn btn-primary btn-lg">Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Modal Edit End-->
+<button type="button" class="btn btn-info btn-lg novel-save-btn">Save</button>
+</body>
+</html>

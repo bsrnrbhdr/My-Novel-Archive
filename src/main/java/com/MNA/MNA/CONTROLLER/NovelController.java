@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RequiredArgsConstructor
-@RequestMapping("/MNA/novels")
+@RequestMapping("/MNA/novel")
 @RestController
 public class NovelController {
 
@@ -54,7 +54,7 @@ public class NovelController {
         return ResponseEntity.ok(novelService.updateNovel(id,novel));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Novel> deleteNovel(@PathVariable Long id) {
         if (novelService.findById(id)==null) {
             log.error("Id " + id + " is not existed");
