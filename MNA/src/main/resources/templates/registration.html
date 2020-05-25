@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Registration</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="/UserSave.js"></script>
+    <!--    <script src="/getrequest.js"></script>-->
+</head>
+<body>
+
+<div class="container" style="min-height: 500px">
+
+    <div class="starter-template">
+        <h1>User Save</h1>
+
+        <form id="UserFormData">
+            <div class="form-group">
+                <label for="username">User Name:</label> <input type="text"
+                                                                class="form-control" id="username" placeholder="Enter User Name"
+                                                                name="username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label> <input type="text"
+                                                         class="form-control" id="email" placeholder="Enter Email"
+                                                         name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password :</label> <input type="text"
+                                                                class="form-control" id="password" placeholder="Enter password"
+                                                                name="password">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button type="submit" id="btn"
+                            class="btn btn-primary btn-lg">Save
+                    </button>
+                </div>
+                <p><a  th:href="@{/login}">Click here for login</a> </p>
+            </div>
+        </form>
+
+        <div id="feedback"></div>
+    </div>
+
+</div>
+</body>
+</html>
+
+
+
+<!--<body>-->
+<!--<div id="postResultDivSaveUser" align="center"></div>-->
+<!--<div class="container">-->
+<!--    <h2>Stacked form</h2>-->
+<!--    -->
+<!--    <br />-->
+<!--    <div class="col-sm-7" style="margin: 20px 0 20px 0">-->
+<!--        <div id="getResultDivSaveUser" style="padding: 20px 10px 20px 50px">-->
+<!--            <ul class="list-group">-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
