@@ -1,0 +1,8 @@
+applications:
+- name: my-novel-archive
+path: target/my-novel-archive.jar
+domain: cfapps.io
+memory: 1G
+instances: 1
+services:
+- postgres
