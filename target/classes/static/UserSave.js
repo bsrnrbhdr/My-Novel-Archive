@@ -21,8 +21,8 @@ $(document).ready(function () {
 
                 var json = "Registration successful!"
                     + JSON.stringify(data.username, data.email, null, 4);
-                $('#feedback').html(json);
-                alert(json)
+                // $('#feedback').html(json);
+                alert(json);
                 window.location ="/login"
             },
             error: function (e) {

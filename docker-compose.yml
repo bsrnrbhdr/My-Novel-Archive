@@ -1,0 +1,47 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    container_name: mna-postgres
+    volumes:
+      - MNAPostgresData:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    command: -p 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mnadb
+    networks:
+      - mna-app-network
+    restart: unless-stopped
+
+  student-app:
+    image: mna-app:0.1.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: mna-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://mna-postgres:5432/mnadb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    networks:
+      - mna-app-network
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    links:
+      - postgres
+volumes:
+  MNAPostgresData:
+    
+networks:
+  mna-app-network:
+    driver: bridge
