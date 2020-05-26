@@ -1,4 +1,5 @@
 package com.MNA.MNA.CONTROLLER;
+
 import com.MNA.MNA.DTO.UserDTO;
 import com.MNA.MNA.MODEL.User;
 import com.MNA.MNA.SERVICE.UserService;
@@ -6,8 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -50,7 +52,10 @@ public class UserController {
 
     @PostMapping("/save")
     public ResponseEntity<User> saveUser(@RequestBody UserDTO user) {
-        return ResponseEntity.ok(userService.save(user));
+        User temp = userService.findByUsername(user.getUsername());
+        if(temp == null){
+            return ResponseEntity.ok(userService.save(user));}
+        return ResponseEntity.badRequest().build();
     }
 
     @PutMapping("/update/{id}")
@@ -71,40 +76,5 @@ public class UserController {
         userService.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
-    @GetMapping("/list/{user_id}/{status}")
-    public ResponseEntity<List<String>> findAllNovel(@PathVariable Long user_id,@PathVariable String status) {
-        List<String> novel_l = userService.findAllNovel(user_id,status);
-        if (novel_l == null) {
-            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(novel_l, HttpStatus.OK);
-    }
-    @GetMapping("/dropped_list/{user_id}")
-    public ResponseEntity<List<String>> findAllDropped(@PathVariable Long user_id) {
-        List<String> novel_l = userService.findAllDropped(user_id);
-        if (novel_l == null) {
-            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(novel_l, HttpStatus.OK);
-    }
-    @GetMapping("/read_list/{user_id}")
-    public ResponseEntity<List<String>> findAllRead(@PathVariable Long user_id) {
-        List<String> novel_l = userService.findAllRead(user_id);
-        if (novel_l == null) {
-            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(novel_l, HttpStatus.OK);
-    }
-    @GetMapping("/reading_list/{user_id}")
-    public ResponseEntity<List<String>> findAllCurrentlyReading(@PathVariable Long user_id) {
-        List<String> novel_l = userService.findAllCurrentlyReading(user_id);
-        if (novel_l == null) {
-            return new ResponseEntity<>((List<String>) null, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(novel_l, HttpStatus.OK);
-    }
-
-
 
 }

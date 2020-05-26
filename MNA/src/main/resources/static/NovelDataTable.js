@@ -5,7 +5,7 @@ $(document).ready( function () {
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],
         "aoColumns": [
-            { "mData": "id"},
+            { "mData": "id", "visible": false},
             { "mData": "novel_name" },
             { "mData": "author" },
             { "mData": "year" },
