@@ -34,16 +34,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests().anyRequest().hasAnyRole("ADMIN", "USER")
-//                .and()
-//                .formLogin()
-//                .and()
-//                .logout().permitAll().logoutSuccessUrl("/login")
-//                .and()
-//                .csrf().disable();
-//    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http    .csrf().disable()
